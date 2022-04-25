@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bar Charts</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css"/>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+  </head>
+  <body class="p-2" style="background-color:rgba(30,35,35)">
+
+    <div class="row">
+      <div class="col-xl-6">
+        <table class="table table-sm table-borderless">
+          <tbody>
+            <tr class="text-white text-center">
+              <td>
+                <span style="font-size:48px">$99.9</span>
+              </td>
+              <td>
+                <span style="font-size:48px">$99.9</span>
+              </td>
+              <td>
+                <span style="font-size:48px">$99.9</span>
+              </td>
+            </tr>
+            <tr class="text-center" style="color:rgba(255,255,255,0.5)">
+              <td>
+                <p>Nunc ut arcu nisi. Ut volutpat consectetur velit eget commodo.</p>
+              </td>
+              <td>
+                <p>Nunc ut arcu nisi. Ut volutpat consectetur velit eget commodo.</p>
+              </td>
+              <td>
+                <p>Nunc ut arcu nisi. Ut volutpat consectetur velit eget commodo.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <hr class="bg-red w-25" style="height:3px"/>
+              </td>
+              <td>
+                <hr class="bg-red w-25" style="height:3px"/>
+              </td>
+              <td>
+                <hr class="bg-red w-25" style="height:3px"/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-xl-6">
+        <table class="table table-borderless text-center d-flex justify-content-center">
+          <tbody>
+            <tr>
+              <td>
+                <button class="btn btn-outline-danger text-white" style="border-radius:25px">
+                  HOUR
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-outline-danger text-white" style="border-radius:25px">
+                  DAY
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-outline-danger text-white" style="border-radius:25px">
+                  WEEK
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-outline-danger text-white" style="border-radius:25px">
+                  MONTH
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-outline-danger text-white" style="border-radius:25px">
+                  YEAR
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="height:120px;width:120px">
+                  <canvas id="doughnut1"></canvas>
+                </div>
+              </td>
+              <td>
+                <div style="height:120px;width:120px">
+                  <canvas id="doughnut2"></canvas>
+                </div>
+              </td>
+              <td>
+                <div style="height:120px;width:120px">
+                  <canvas id="doughnut3"></canvas>
+                </div>
+              </td>
+              <td>
+                <div style="height:120px;width:120px">
+                  <canvas id="doughnut4"></canvas>
+                </div>
+              </td>
+              <td>
+                <div style="height:120px;width:120px">
+                  <canvas id="doughnut5"></canvas>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-xl-6 mb-3">
+        <div id="map" style="height:400px"></div>
+      </div>
+      <div class="col-xl-6">
+        <div class="w-100">
+          <canvas id="line1" style="height:200px"></canvas>
+        </div>
+        <table class="table table-borderless">
+          <tbody>
+            <tr class="text-center">
+              <td colspan="2">
+                <button class="btn btn-outline-danger form-control text-white" style="border-radius:25px">BUTTON RED</button>
+              </td>
+              <td colspan="2">
+                <button class="btn btn-outline-danger form-control text-white" style="border-radius:25px">BUTTON RED</button>
+              </td>
+              <td colspan="2">
+                <button class="btn btn-outline-danger form-control text-white" style="border-radius:25px">BUTTON RED</button>
+              </td>
+              <td colspan="2">
+                <button class="btn btn-outline-danger form-control text-white" style="border-radius:25px">BUTTON RED</button>
+              </td>
+            </tr>
+            <tr>
+              <td style="vertical-align:middle">
+                <span class="text-white" style="font-size:48px">99</span>
+              </td>
+              <td style="vertical-align:middle">
+                <span style="font-size:12px;color:rgba(255,255,255,0.5)">Nunc ut arcu nisi. Ut volutpat consectetur velit eget commodo.</span>
+              </td>
+              <td style="vertical-align:middle">
+                <span class="text-white" style="font-size:48px">99</span>
+              </td>
+              <td style="vertical-align:middle">
+                <span style="font-size:12px;color:rgba(255,255,255,0.5)">Nunc ut arcu nisi. Ut volutpat consectetur velit eget commodo.</span>
+              </td>
+              <td style="vertical-align:middle">
+                <span class="text-white" style="font-size:48px">99</span>
+              </td>
+              <td style="vertical-align:middle">
+                <span style="font-size:12px;color:rgba(255,255,255,0.5)">Nunc ut arcu nisi. Ut volutpat consectetur velit eget commodo.</span>
+              </td>
+              <td style="vertical-align:middle">
+                <span class="text-white" style="font-size:48px">99</span>
+              </td>
+              <td style="vertical-align:middle">
+                <span style="font-size:12px;color:rgba(255,255,255,0.5)">Nunc ut arcu nisi. Ut volutpat consectetur velit eget commodo.</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-xl-3">
+        <div class="card bg-dark">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-xl-3 text-center">
+                <span style="font-size:36px">$12K</span>
+                <span style="font-size:12px;color:rgba(255,255,255,0.2)">Lorem Ipsum</span>
+              </div>
+              <div class="col-xl-7">
+                <div class="w-100" style="height:70px">
+                  <canvas id="bar1"></canvas>
+                </div>
+              </div>
+              <div class="col-xl-2">
+                <span style="font-size:12px;color:rgba(255,255,255,0.2)">Lorem</span>
+                <span style="font-size:12px;color:rgba(255,255,255,0.2)">Lorem</span>
+                <span style="font-size:12px;color:rgba(255,255,255,0.2)">Lorem</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card bg-dark">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-xl-3 text-center">
+                <span style="font-size:36px">$12K</span>
+                <span style="font-size:12px;color:rgba(255,255,255,0.2)">Lorem Ipsum</span>
+              </div>
+              <div class="col-xl-7">
+                <div class="w-100" style="height:70px">
+                  <canvas id="bar2"></canvas>
+                </div>
+              </div>
+              <div class="col-xl-2">
+                <span style="font-size:12px;color:rgba(255,255,255,0.2)">Lorem</span>
+                <span style="font-size:12px;color:rgba(255,255,255,0.2)">Lorem</span>
+                <span style="font-size:12px;color:rgba(255,255,255,0.2)">Lorem</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card bg-dark">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-xl-3 text-center">
+                <span style="font-size:36px">$12K</span>
+                <span style="font-size:12px;color:rgba(255,255,255,0.2)">Lorem Ipsum</span>
+              </div>
+              <div class="col-xl-7">
+                <div class="w-100" style="height:70px">
+                  <canvas id="bar3"></canvas>
+                </div>
+              </div>
+              <div class="col-xl-2">
+                <span style="font-size:12px;color:rgba(255,255,255,0.2)">Lorem</span>
+                <span style="font-size:12px;color:rgba(255,255,255,0.2)">Lorem</span>
+                <span style="font-size:12px;color:rgba(255,255,255,0.2)">Lorem</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3">
+        <div class="w-100" style="height:400px">
+          <canvas id="line2"></canvas>
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <div class="w-100" style="height:400px">
+          <canvas id="line3"></canvas>
+        </div>
+      </div>
+
+    </div>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/js/OverlayScrollbars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/9.3.0/highcharts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
+    <script type="text/javascript">
+      var line1 = new Chart("line1", {
+        type: "bar",
+        data: {
+          datasets:[
+            {
+              type:"line",
+              data: [10,9,8,9,11,7,8,7,6,7,8,10],
+              backgroundColor: ['#B5179E68'],
+              borderColor:['#B5179EFF'],
+              borderWidth:1,
+              tension:0.3,
+              fill:true,
+              pointRadius:0
+            },
+            {
+              type:"line",
+              data: [11,13,12,12,13,11,10,10,12,11,12,13],
+              backgroundColor: ['#7209B768'],
+              borderColor:['#7209B7FF'],
+              borderWidth:1,
+              tension:0.3,
+              fill:true,
+              pointRadius:0
+            },
+          ],
+          labels:['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
+        },
+        options:{
+          maintainAspectRatio:false,
+          scales:{
+            yAxes:{
+              suggestedMin:5,
+              suggestedMax:15,
+              ticks:{
+                display:false
+              }
+            },
+            xAxes:{
+              grid:{
+                display:true,
+                color:'rgba(255,255,255,0.2)',
+              },
+              ticks:{
+
+              }
+            }
+          },
+          plugins:{
+            legend:{
+              display:false
+            }
+          }
+        }
+      });
+      var doughnut1 = new Chart("doughnut1", {
+        type: "doughnut",
+        data: {
+          datasets:[
+            {
+              data: [5,12,3],
+              backgroundColor: ['rgba(114,9,183,0.9)','rgba(181,23,158,0.9)','rgba(45,45,45,0.9)'],
+              borderColor:['rgba(114,9,183,1)','rgba(181,23,158,1)','rgba(45,45,45,1)'],
+              borderWidth:1,
+            },
+          ],
+          labels:['Data 1','Data 2','Data 3']
+        },
+        options:{
+          maintainAspectRatio:false,
+          cutout:'75%',
+          radius:50,
+          plugins:{
+            legend:{
+              display:false
+            }
+          }
+        }
+      });
+      var doughnut2 = new Chart("doughnut2", {
+        type: "doughnut",
+        data: {
+          datasets:[
+            {
+              data: [5,12,3],
+              backgroundColor: ['rgba(114,9,183,0.9)','rgba(181,23,158,0.9)','rgba(45,45,45,0.9)'],
+              borderColor:['rgba(114,9,183,1)','rgba(181,23,158,1)','rgba(45,45,45,1)'],
+              borderWidth:1,
+            },
+          ],
+          labels:['Data 1','Data 2','Data 3']
+        },
+        options:{
+          maintainAspectRatio:false,
+          cutout:'75%',
+          radius:50,
+          plugins:{
+            legend:{
+              display:false
+            }
+          }
+        }
+      });
+      var doughnut3 = new Chart("doughnut3", {
+        type: "doughnut",
+        data: {
+          datasets:[
+            {
+              data: [5,12,3],
+              backgroundColor: ['rgba(114,9,183,0.9)','rgba(181,23,158,0.9)','rgba(45,45,45,0.9)'],
+              borderColor:['rgba(114,9,183,1)','rgba(181,23,158,1)','rgba(45,45,45,1)'],
+              borderWidth:1,
+            },
+          ],
+          labels:['Data 1','Data 2','Data 3']
+        },
+        options:{
+          maintainAspectRatio:false,
+          cutout:'75%',
+          radius:50,
+          plugins:{
+            legend:{
+              display:false
+            }
+          }
+        }
+      });
+      var doughnut4 = new Chart("doughnut4", {
+        type: "doughnut",
+        data: {
+          datasets:[
+            {
+              data: [5,12,3],
+              backgroundColor: ['rgba(114,9,183,0.9)','rgba(181,23,158,0.9)','rgba(45,45,45,0.9)'],
+              borderColor:['rgba(114,9,183,1)','rgba(181,23,158,1)','rgba(45,45,45,1)'],
+              borderWidth:1,
+            },
+          ],
+          labels:['Data 1','Data 2','Data 3']
+        },
+        options:{
+          maintainAspectRatio:false,
+          cutout:'75%',
+          radius:50,
+          plugins:{
+            legend:{
+              display:false
+            }
+          }
+        }
+      });
+      var doughnut5 = new Chart("doughnut5", {
+        type: "doughnut",
+        data: {
+          datasets:[
+            {
+              data: [5,12,3],
+              backgroundColor: ['rgba(114,9,183,0.9)','rgba(181,23,158,0.9)','rgba(45,45,45,0.9)'],
+              borderColor:['rgba(114,9,183,1)','rgba(181,23,158,1)','rgba(45,45,45,1)'],
+              borderWidth:1,
+            },
+          ],
+          labels:['Data 1','Data 2','Data 3']
+        },
+        options:{
+          maintainAspectRatio:false,
+          cutout:'75%',
+          radius:50,
+          plugins:{
+            legend:{
+              display:false
+            }
+          }
+        }
+      });
+      var line2 = new Chart("line2", {
+        type: "bar",
+        data: {
+          datasets:[
+            {
+              type:"line",
+              data: [10,9,8,9,11,7,8,7,6,7,8,10],
+              backgroundColor: ['#FF00AA68'],
+              borderColor:['#FF00AAFF'],
+              borderWidth:2,
+              tension:0.3,
+              fill:true,
+              pointRadius:0
+            }
+          ],
+          labels:['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
+        },
+        options:{
+          maintainAspectRatio:false,
+          scales:{
+            yAxes:{
+              suggestedMin:5,
+              suggestedMax:15,
+              ticks:{
+                display:false
+              },
+              grid:{
+                display:false
+              }
+            },
+            xAxes:{
+              grid:{
+                display:true,
+                color:'rgba(128,128,128,0.5)',
+              },
+              ticks:{
+
+              }
+            }
+          },
+          plugins:{
+            legend:{
+              display:false
+            }
+          }
+        }
+      });
+      var line3 = new Chart("line3", {
+        type: "bar",
+        data: {
+          datasets:[
+            {
+              type:"line",
+              data: [10,9,8,9,11,7,8,7,6,7,8,10],
+              backgroundColor: ['#FF000068'],
+              borderColor:['#FF0000FF'],
+              borderWidth:2,
+              fill:true,
+              pointRadius:5
+            }
+          ],
+          labels:['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
+        },
+        options:{
+          maintainAspectRatio:false,
+          scales:{
+            yAxes:{
+              suggestedMin:5,
+              suggestedMax:15,
+              ticks:{
+                display:false
+              },
+              grid:{
+                display:false
+              }
+            },
+            xAxes:{
+              grid:{
+                display:true,
+                color:'rgba(128,128,128,0.5)',
+              },
+              ticks:{
+
+              }
+            }
+          },
+          plugins:{
+            legend:{
+              display:false
+            }
+          }
+        }
+      });
+      var bar1 = new Chart("bar1", {
+        type: "bar",
+        data: {
+          datasets:[
+            {
+              data: [10,9,8,9,11,7,8,7,6,7,8,10,12,11,9,8,7,10,10,9,8,9,11,7,8,7,6,7,8,10,12,11,9,8,7,10],
+              backgroundColor: ['#4CC9F0C8'],
+              borderColor:['#4CC9F0FF'],
+              borderWidth:2,
+              fill:true,
+              pointRadius:5
+            }
+          ],
+          labels:['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC','JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
+        },
+        options:{
+          maintainAspectRatio:false,
+          scales:{
+            yAxes:{
+              suggestedMin:5,
+              suggestedMax:15,
+              ticks:{
+                display:false
+              },
+              grid:{
+                display:false,
+              },
+            },
+            xAxes:{
+              grid:{
+                display:false,
+              },
+              ticks:{
+                display:false
+              }
+            }
+          },
+          plugins:{
+            legend:{
+              display:false
+            }
+          }
+        }
+      });
+      var bar2 = new Chart("bar2", {
+        type: "bar",
+        data: {
+          datasets:[
+            {
+              data: [10,9,8,9,11,7,8,7,6,7,8,10,12,11,9,8,7,10,10,9,8,9,11,7,8,7,6,7,8,10,12,11,9,8,7,10],
+              backgroundColor: ['#4CC9F0C8'],
+              borderColor:['#4CC9F0FF'],
+              borderWidth:2,
+              fill:true,
+              pointRadius:5
+            }
+          ],
+          labels:['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC','JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
+        },
+        options:{
+          maintainAspectRatio:false,
+          scales:{
+            yAxes:{
+              suggestedMin:5,
+              suggestedMax:15,
+              ticks:{
+                display:false
+              },
+              grid:{
+                display:false,
+              },
+            },
+            xAxes:{
+              grid:{
+                display:false,
+              },
+              ticks:{
+                display:false
+              }
+            }
+          },
+          plugins:{
+            legend:{
+              display:false
+            }
+          }
+        }
+      });
+      var bar3 = new Chart("bar3", {
+        type: "bar",
+        data: {
+          datasets:[
+            {
+              data: [10,9,8,9,11,7,8,7,6,7,8,10,12,11,9,8,7,10,10,9,8,9,11,7,8,7,6,7,8,10,12,11,9,8,7,10],
+              backgroundColor: ['#4CC9F0C8'],
+              borderColor:['#4CC9F0FF'],
+              borderWidth:2,
+              fill:true,
+              pointRadius:5
+            }
+          ],
+          labels:['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC','JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
+        },
+        options:{
+          maintainAspectRatio:false,
+          scales:{
+            yAxes:{
+              suggestedMin:5,
+              suggestedMax:15,
+              ticks:{
+                display:false
+              },
+              grid:{
+                display:false,
+              },
+            },
+            xAxes:{
+              grid:{
+                display:false,
+              },
+              ticks:{
+                display:false
+              }
+            }
+          },
+          plugins:{
+            legend:{
+              display:false
+            }
+          }
+        }
+      });
+      mapboxgl.accessToken = 'pk.eyJ1IjoiYmxhY2tia3AiLCJhIjoiY2t1eGllY3F4MDJoeDMzbGRwc3FsYm9taSJ9.FEo4XqplkK783BdJjfqBXg';
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/navigation-night-v1',
+        center: [100.8010515,13.6980025], //Long , Lat
+        zoom: 13
+      });
+    </script>
+  </body>
+</html>
